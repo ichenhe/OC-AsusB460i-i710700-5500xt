@@ -17,8 +17,8 @@
 
 ## Software
 
-- **OS:** Mac OS Big Sur 11.1 
-- **Bootloader:** OpenCore 0.6.4
+- **OS:** Mac OS Big Sur 11.2.2 
+- **Bootloader:** OpenCore 0.6.8
 
 ## What's working
 
@@ -61,16 +61,16 @@ Add `-v debug=0x100 ` to `NARAM - Add - 7C436110-AB2A-4BBB-A880-FE41995C9F82 - b
 
 | Item                                                         | Version |
 | ------------------------------------------------------------ | ------- |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases) | 1.1.0   |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases) | 1.5.5   |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases) | 1.2.0   |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases) | 1.5.9   |
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 1.1.2   |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases) | 1.0.4   |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)         | 1.5.0   |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)   | 1.0.4   |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases) | 1.0.5   |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)         | 1.5.2   |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)   | 1.0.6   |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases) | 1.0.7   |
 | [USBInjectAll / XHCI-unsupported @Sniki](https://github.com/Sniki/OS-X-USB-Inject-All/releases) | 0.7.5   |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | 1.1.9   |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | 1.4.5   |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | 1.2.2   |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | 1.4.9   |
 
 ## Multiboot
 
@@ -83,4 +83,5 @@ Just:
    - Type: Linux or other systems
    - Describe: e.g. OpenCore
    - Target partition: Your HDD's EFI partition  (`ESP`)
+
 
