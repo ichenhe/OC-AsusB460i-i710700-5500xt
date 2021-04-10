@@ -76,8 +76,6 @@ Add `-v debug=0x100 ` to `NARAM - Add - 7C436110-AB2A-4BBB-A880-FE41995C9F82 - b
 
 Things have changed since OpenCore 0.6.6. Please see the [docs](https://dortania.github.io/OpenCore-Multiboot/) for a complete tutorial. 
 
-For simplicity, I recommend you use `DiskGenius` and `EasyUEFI` on Windows to configure UEFI multiboot.
-
 Core step: Add `\EFI\Microsoft\Boot\bootmgfw.efi` to `Misc -> BlessOverride` in config.plist and ensure the existence of the above file.
 
 > You can press `Ctrl+Enter` on the OpenCore's boot screen to set the default boot option.
@@ -85,6 +83,8 @@ Core step: Add `\EFI\Microsoft\Boot\bootmgfw.efi` to `Misc -> BlessOverride` in 
 ---
 
 **⚠️ Legacy only**
+
+For simplicity, I recommend you use `DiskGenius` and `EasyUEFI` on Windows to configure UEFI multiboot.
 
 Just:
 
