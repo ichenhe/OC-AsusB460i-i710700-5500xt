@@ -1,8 +1,10 @@
 # Asus B460i / i7 10700 / 5500xt / Intel AX200
 
-**Thanks:** [@jalalabdulaziz](https://github.com/jalalabdulaziz/ROG-Strix-B460-I)
+**Thanks:** [@jalalabdulaziz](https://github.com/jalalabdulaziz/ROG-Strix-B460-I), [@roederja](https://github.com/roederja/asus-rog-strix-b460I-hackintosh)
 
-**WARNING: You must add your own serial number in `EFI/OC/config.plist`.** Related fields are: PlatformInfo - MLB/SystemProductName/SystemSerialNumber/SystemUUID. You can generate some random numbers by [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). See [official guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo) for details.
+⚠️ **WARNING1: You must add your own serial number in `EFI/OC/config.plist`.** Related fields are: `PlatformInfo - MLB/SystemProductName/SystemSerialNumber/SystemUUID`. You can generate some random numbers by [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). See [official guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo) for details.
+
+⚠️ **WARNING2:  Aura and part of the front USB is blocked.** See USB section for details.
 
 ## Hardware
 
@@ -17,7 +19,7 @@
 
 ## Software
 
-- **OS:** Mac OS Big Sur 11.2.2 
+- **OS:** Mac OS Big Sur 11.3
 - **Bootloader:** OpenCore 0.6.8
 
 ## What's working
@@ -28,16 +30,26 @@
 - [x] WiFi & Bluetooth (AX200) **See notice below.**
 - [x] USB
 
+## USB
+
+1. This board usb device id is `0xa3af` which is not supported by default in `USBInjectAll.kext`  (If you decide to use) and `XHCI-unsupported.kext`, hence rename is required in both kext `8086_a2af` → `8086_a3af`, `0xa2af8086` → `0xa3af8086`.
+2. Since Big Sur 11.3, the patch that removes 15 usb interfaces limitation [has been invalidated and the author no longer maintain](https://github.com/acidanthera/bugtracker/issues/1514).
+
+**So we cannot continue to use USBInjectAll.kext, instead, we must create a usb map to choose which interfaces to enable, and no more than 15.** If you prefer to do this work by your self, please refer to the [documents](https://dortania.github.io/OpenCore-Post-Install/usb/#macos-and-the-15-port-limit).
+
+According to my actual situation, this repo shut down Aura and the second front USB. Built-in Bluetooth and other interfaces are fine. If you want to make a little change, please edit `Kexts/USB-Map.kext/Contents/Info.plist`. These are the parameters of some interfaces:
+
+| Interface    | Type           | port     |
+| ------------ | -------------- | -------- |
+| Aura         | 255 (internal) | 0B000000 |
+| Front2 (2.0) | 0              | 02000000 |
+| Front2 (3.0) | 3              | 12000000 |
+
 ## Notice
 
 ### SSD
 
 Samsung 970 Evo Plus's firmware must >= 2B2QEXm7 which fixes serious problem on hackintosh. You can check or upgrade it by [Samsung Magician](https://www.samsung.com/semiconductor/minisite/ssd/product/consumer/magician/) on Windows.
-
-### USB
-
-1. Use [Sniki's version](https://github.com/Sniki/OS-X-USB-Inject-All) of `USBInjectAll` since the [original one](https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/) is no longer maintained.
-2. This board usb device id is `0xa3af` which is not supported by default in `USBInjectAll.kext` and `XHCI-unsupported.kext`, hence rename is required in both kext `8086_a2af` → `8086_a3af`, `0xa2af8086` → `0xa3af8086`.
 
 ### BIOS
 
