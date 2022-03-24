@@ -2,9 +2,9 @@
 
 **Thanks:** [@jalalabdulaziz](https://github.com/jalalabdulaziz/ROG-Strix-B460-I), [@roederja](https://github.com/roederja/asus-rog-strix-b460I-hackintosh)
 
-⚠️ **WARNING1: You must add your own serial number in `EFI/OC/config.plist`.** Related fields are: `PlatformInfo - MLB/SystemProductName/SystemSerialNumber/SystemUUID`. You can generate some random numbers by [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). See [official guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo) for details.
+⚠️ **WARNING1: You must add your own serial number in `EFI/OC/config.plist`.** Related fields are: `PlatformInfo - Generic - MLB / SystemProductName / SystemSerialNumber / SystemUUID`. You can generate some random numbers by [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). See [official guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo) for details.
 
-⚠️ **WARNING2:  Aura and part of the front USB is blocked.** See USB section for details.
+⚠️ **WARNING2:  Aura and part of the front USB is blocked.** See [USB section](#USB) for details.
 
 ## Hardware
 
@@ -20,7 +20,7 @@
 ## Software
 
 - **OS:** Mac OS Big Sur 11.3
-- **Bootloader:** OpenCore 0.7.3
+- **Bootloader:** OpenCore 0.7.8
 
 ## What's working
 
@@ -35,15 +35,9 @@
 1. This board usb device id is `0xa3af` which is not supported by default in `USBInjectAll.kext`  (If you decide to use) and `XHCI-unsupported.kext`, hence rename is required in both kext `8086_a2af` → `8086_a3af`, `0xa2af8086` → `0xa3af8086`.
 2. Since Big Sur 11.3, the patch that removes 15 usb interfaces limitation [has been invalidated and the author no longer maintain](https://github.com/acidanthera/bugtracker/issues/1514).
 
-**So we cannot continue to use USBInjectAll.kext, instead, we must create a usb map to choose which interfaces to enable, and no more than 15.** If you prefer to do this work by your self, please refer to the [documents](https://dortania.github.io/OpenCore-Post-Install/usb/#macos-and-the-15-port-limit).
+**So we cannot continue to use `USBInjectAll.kext`, instead, we must create a usb map to choose which interfaces to enable, and no more than 15.** If you prefer to do this work by your self, please refer to the [documents](https://dortania.github.io/OpenCore-Post-Install/usb/#macos-and-the-15-port-limit). And here's a [wondful tool](https://github.com/USBToolBox/tool) that can help you.
 
-According to my actual situation, this repo shut down Aura and the second front USB. Built-in Bluetooth and other interfaces are fine. If you want to make a little change, please edit `Kexts/USB-Map.kext/Contents/Info.plist`. These are the parameters of some interfaces:
-
-| Interface    | Type           | port     |
-| ------------ | -------------- | -------- |
-| Aura         | 255 (internal) | 0B000000 |
-| Front2 (2.0) | 0              | 02000000 |
-| Front2 (3.0) | 3              | 12000000 |
+According to my actual situation, this repo shut down Aura and the second front USB. Built-in Bluetooth and other interfaces are fine. If you want to make a little change, please refer to the yool mentioned above.
 
 ## Notice
 
@@ -71,18 +65,20 @@ Add `-v debug=0x100 ` to `NARAM - Add - 7C436110-AB2A-4BBB-A880-FE41995C9F82 - b
 
 ## Kexts
 
-| Item                                                         | Version |
-| ------------------------------------------------------------ | ------- |
-| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases) | 2.0.0   |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases) | 1.6.4   |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.0.0   |
-| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases) | 1.0.7   |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)         | 1.5.6   |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)   | 1.0.9   |
-| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases) | 1.0.7   |
-| [USBInjectAll / XHCI-unsupported @Sniki](https://github.com/Sniki/OS-X-USB-Inject-All/releases) | 0.7.5   |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | 1.2.7   |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | 1.5.3   |
+| Item                                                         | Version      |                |
+| ------------------------------------------------------------ | ------------ | -------------- |
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases) | 2.1.0 BigSur |                |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases) | 1.7.0        |                |
+| [CpuTscSync](https://github.com/acidanthera/CpuTscSync)      | 1.0.7        |                |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.1.0        |                |
+| [IntelMausi](https://github.com/acidanthera/IntelMausi/releases) | 1.0.7        |                |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)         | 1.6.0        |                |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)   | 1.0.9        |                |
+| [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases) | 1.0.7        | fix bios reset |
+| [XHCI-unsupported @Sniki](https://github.com/Sniki/OS-X-USB-Inject-All/releases) | 0.7.6        |                |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | 1.2.9        |                |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | 1.5.8        |                |
+| [USBToolBox / UTBMap](https://github.com/USBToolBox/kext/releases) | 1.1.0        | USB mapping    |
 
 ## Multiboot
 
