@@ -20,7 +20,7 @@
 ## Software
 
 - **OS:** Mac OS Big Sur 11.3
-- **Bootloader:** OpenCore 0.7.8
+- **Bootloader:** OpenCore 0.8.3
 
 ## What's working
 
@@ -68,17 +68,17 @@ Add `-v debug=0x100 ` to `NARAM - Add - 7C436110-AB2A-4BBB-A880-FE41995C9F82 - b
 | Item                                                         | Version      |                |
 | ------------------------------------------------------------ | ------------ | -------------- |
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases) | 2.1.0 BigSur |                |
-| [AppleALC](https://github.com/acidanthera/AppleALC/releases) | 1.7.0        |                |
-| [CpuTscSync](https://github.com/acidanthera/CpuTscSync)      | 1.0.7        |                |
-| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.1.0        |                |
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases) | 1.7.4        |                |
+| [CpuTscSync](https://github.com/acidanthera/CpuTscSync)      | 1.0.9        |                |
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | 2.2.0        |                |
 | [IntelMausi](https://github.com/acidanthera/IntelMausi/releases) | 1.0.7        |                |
-| [Lilu](https://github.com/acidanthera/Lilu/releases)         | 1.6.0        |                |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)   | 1.0.9        |                |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)         | 1.6.2        |                |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)   | 1.1.0        |                |
 | [RTCMemoryFixup](https://github.com/acidanthera/RTCMemoryFixup/releases) | 1.0.7        | fix bios reset |
 | [XHCI-unsupported @Sniki](https://github.com/Sniki/OS-X-USB-Inject-All/releases) | 0.7.6        |                |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | 1.2.9        |                |
-| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | 1.5.8        |                |
-| [USBToolBox / UTBMap](https://github.com/USBToolBox/kext/releases) | 1.1.0        | USB mapping    |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | 1.3.0        |                |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | 1.6.1        |                |
+| [USBToolBox / UTBMap](https://github.com/USBToolBox/kext/releases) | 1.1.1        | USB mapping    |
 
 ## Multiboot
 
