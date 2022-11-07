@@ -53,6 +53,10 @@ Samsung 970 Evo Plus's firmware must >= 2B2QEXm7 which fixes serious problem on 
 
 Thanks to [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases) now we can enable on-board Wireless NIC card (intel AX200) on hackintosh, **but only at a very low speed (about 50Mbps) so far.** This issue may be improved in the future, please follow the kext project motioned above.
 
+### Fix ASUS F1
+
+`Kernel - Quirks - DisableRtcChecksum` is enabled to fix the ASUS motherboard F1 problem.
+
 ## BIOS Settings
 
 See [official guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#intel-bios-settings) for details.
