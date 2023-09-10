@@ -1,5 +1,7 @@
 # Asus B460i / i7 10700 / 5500xt / Intel AX200
 
+> I have upgraded my PC to intel 13700 with B760 mother board. Please visit [the new repo](https://github.com/ichenhe/oc-b760m-13700-6800) for latest efi files.
+
 **Thanks:** [@jalalabdulaziz](https://github.com/jalalabdulaziz/ROG-Strix-B460-I), [@roederja](https://github.com/roederja/asus-rog-strix-b460I-hackintosh)
 
 ⚠️ **WARNING1: You must add your own serial number in `EFI/OC/config.plist`.** Related fields are: `PlatformInfo - Generic - MLB / SystemProductName / SystemSerialNumber / SystemUUID`. You can generate some random numbers by [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). See [official guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#platforminfo) for details.
